@@ -1,16 +1,21 @@
 'use strict';
 
 const Controller = require('egg').Controller;
-
+// const MongoClient = require('mongodb').MongoClient;
 class HomeController extends Controller {
   async index() {
-    const { ctx } = this;
+    const {
+      ctx,
+    } = this;
     const title = Math.random() * 1000;
-    const { app, query } = ctx;
+    const {
+      app,
+      query,
+    } = ctx;
     // 给谁发, socket连接的id
     const id = query.id;
     console.log('-------');
-    console.log('id是');
+    console.log('id是', id);
     const nsp = app.io.of('/');
     if (nsp.sockets[id]) {
       // 通过id给指定socket连接发送消息
@@ -18,6 +23,23 @@ class HomeController extends Controller {
     }
     await ctx.render('index.html', {
       title: `我是随机数： ${title}`,
+    });
+  }
+  async mogoTest() {
+    const {
+      ctx,
+    } = this;
+    // const url = 'mongodb://localhost:27017/runoob';
+
+    // MongoClient.connect(url, {
+    //   useNewUrlParser: true,
+    // }, function(err, db) {
+    //   if (err) throw err;
+    //   console.log('数据库已创建!');
+    //   db.close();
+    // });
+    await ctx.render('index.html', {
+      title: 'mogo 测试',
     });
   }
 }
