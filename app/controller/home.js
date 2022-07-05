@@ -4,14 +4,9 @@ const Controller = require('egg').Controller;
 // const MongoClient = require('mongodb').MongoClient;
 class HomeController extends Controller {
   async index() {
-    const {
-      ctx,
-    } = this;
+    const { ctx } = this;
     const title = Math.random() * 1000;
-    const {
-      app,
-      query,
-    } = ctx;
+    const { app, query } = ctx;
     // 给谁发, socket连接的id
     const id = query.id;
     console.log('-------');
@@ -24,11 +19,25 @@ class HomeController extends Controller {
     await ctx.render('index.html', {
       title: `我是随机数： ${title}`,
     });
+    // this.add();
   }
+
+  async add() {
+    const ctx = this.ctx;
+    let count = ctx.cookies.get('count');
+    count = count ? Number(count) : 0;
+    ctx.cookies.set('count', ++count);
+    ctx.body = count;
+  }
+
+  async remove() {
+    const ctx = this.ctx;
+    ctx.cookies.set('count', null);
+    ctx.status = 204;
+  }
+
   async mogoTest() {
-    const {
-      ctx,
-    } = this;
+    const { ctx } = this;
     // const url = 'mongodb://localhost:27017/runoob';
 
     // MongoClient.connect(url, {
