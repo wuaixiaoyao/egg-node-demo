@@ -19,8 +19,8 @@ class UserService extends Service {
     // const user = await this.ctx.db.query('select * from user where uid = ?', uid);
     // const client1 = await this.app.mysql.get('db1');
     // console.log('client1:', client1);
-    console.log('uid:', uid);
-    const user = await this.app.mysql.get('users', { id: uid, user_name: 'test' });
+    console.log('===== uid: =========', uid);
+    const user = await this.app.mysql.get('user', { id: uid, user_name: 'test1' });
     console.log('this.app.mysql', this.app.mysql);
     console.log(user, 'user');
     return { user };
