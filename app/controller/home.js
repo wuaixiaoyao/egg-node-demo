@@ -22,6 +22,18 @@ class HomeController extends Controller {
     // this.add();
   }
 
+  async listReposByOrg() {
+    // 获取请求参数
+    const org = this.ctx.query.org || 'eggjs';
+    // 调用业务逻辑
+    const result = await this.ctx.service.github.listReposByOrg(org);
+    // 渲染数据
+    this.ctx.body = {
+      code: 200,
+      data: result,
+    };
+  }
+
   async add() {
     const ctx = this.ctx;
     let count = ctx.cookies.get('count');

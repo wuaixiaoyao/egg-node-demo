@@ -13,4 +13,13 @@
     <h1>{{ title }}</h1> 
     <!-- 使用模板数据 -->
     <h2>欢迎来到egg, 我是egg demo</h2>
+    <form
+        method="POST"
+        action="/file/upload?_csrf={{ ctx.csrf | safe }}"
+        enctype="multipart/form-data"
+        >
+        title: <input name="title" /> file: <input name="file" type="file" />
+        <button type="submit">upload</button>
+    </form>
+    <script src="./js/test.js"></script>
 </body>

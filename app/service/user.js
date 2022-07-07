@@ -20,26 +20,23 @@ class UserService extends Service {
     // const client1 = await this.app.mysql.get('db1');
     // console.log('client1:', client1);
     console.log('===== uid: =========', uid);
-    const user = await this.app.mysql.get('user', { id: uid, user_name: 'test1' });
-    console.log('this.app.mysql', this.app.mysql);
+    const user = await this.app.mysql.get('user', { id: uid, user: 'test1' });
     console.log(user, 'user');
-    return { user };
     // const user = {
     //   user_name: 'wuaixiaoyao',
     //   age: 18,
     // };
     // 假定这里还有一些复杂的计算，然后返回需要的信息。
-    // const picture = await new Promise((resolve, reject) => {
-    //   setTimeout(() => {
-    //     resolve('https://www.baidu.com/');
-    //   }, 2000);
-    // });
+    const picture = await new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('https://www.baidu.com/');
+      }, 2000);
+    });
 
-    // return {
-    //   name: user.user_name,
-    //   age: user.age,
-    //   picture,
-    // };
+    return {
+      ...user,
+      picture,
+    };
   }
 
   // async getPicture(uid) {

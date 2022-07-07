@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "username": "root",
+    "password": "123456",
+    "database": "sys",
+    "host": "152.136.221.155",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "123456",
+    "database": "sys",
+    "host": "152.136.221.155",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "123456",
+    "database": "sys",
+    "host": "152.136.221.155",
+    "dialect": "mysql"
+  }
+}

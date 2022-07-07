@@ -11,16 +11,16 @@ see [egg docs][egg] for more detail.
 ### Development
 
 ```bash
-$ npm i
-$ npm run dev
-$ open http://localhost:7002/
+npm i
+npm run dev
+open http://localhost:7002/
 ```
 
 ### Deploy
 
 ```bash
-$ npm start
-$ npm stop
+npm start
+npm stop
 ```
 
 ### npm scripts
@@ -29,5 +29,8 @@ $ npm stop
 - Use `npm test` to run unit test.
 - Use `npm run autod` to auto detect dependencies upgrade, see [autod](https://www.npmjs.com/package/autod) for more detail.
 
+### 参考
 
-[egg]: https://eggjs.org
+- [egg](https://www.eggjs.org/zh-CN)
+- [egg-sequelize](https://www.eggjs.org/zh-CN/tutorials/sequelize)
+- [egg.js开发后端API接口](https://www.h5w3.com/120313.html)

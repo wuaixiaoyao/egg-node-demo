@@ -13,26 +13,43 @@ module.exports = (appInfo) => {
 
   const config = (exports = {});
 
-  config.mysql = {
-    // 单数据库信息配置
-    client: {
-      // host
-      host: '152.136.221.155',
-      // 端口号
-      port: '3306',
-      // 用户名
-      user: 'root',
-      // 密码
-      password: '123456',
-      // 数据库名
-      database: 'sys',
+  (config.security = {
+    csrf: {
+      headerName: 'x-csrf-token', // 通过 header 传递 CSRF token 的默认字段为 x-csrf-token
     },
-    // 所有数据库配置的默认值
-    default: {},
-    // 是否加载到 app 上，默认开启
-    app: true,
-    // 是否加载到 agent 上，默认关闭
-    agent: false,
+  }),
+    (config.mysql = {
+      // 单数据库信息配置
+      client: {
+        // host
+        host: '152.136.221.155',
+        // 端口号
+        port: '3306',
+        // 用户名
+        user: 'root',
+        // 密码
+        password: '123456',
+        // 数据库名
+        database: 'sys',
+      },
+      // 所有数据库配置的默认值
+      default: {},
+      // 是否加载到 app 上，默认开启
+      app: true,
+      // 是否加载到 agent 上，默认关闭
+      agent: false,
+    });
+
+  config.sequelize = {
+    dialect: 'mysql',
+    host: '152.136.221.155',
+    port: 3306,
+    // 用户名
+    user: 'root',
+    // 密码
+    password: '123456',
+    // 数据库名
+    database: 'sys',
   };
 
   config.view = {
@@ -61,11 +78,19 @@ module.exports = (appInfo) => {
   config.keys = appInfo.name + '_1587717327146_8903';
 
   // add your middleware config here
-  config.middleware = [];
-
+  // 加载 errorHandler 中间件
+  config.middleware = ['errorHandler'];
+  config.errorHandler = {
+    match: '/api',
+  };
   // add your user config here
   const userConfig = {
     myAppName: 'egg demo',
+  };
+
+  config.github = {
+    endpoint: 'https://api.github.com',
+    pageCount: 10,
   };
 
   return {
