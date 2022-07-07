@@ -7,6 +7,8 @@
     "declarations": true
   },
   "dependencies": {
+    "await-stream-ready": "^1.0.1",
+    "dayjs": "^1.11.3",
     "egg": "^2.36.0",
     "egg-mysql": "^3.0.0",
     "egg-scripts": "^2.11.0",
@@ -16,7 +18,8 @@
     "moment": "^2.29.3",
     "mongodb": "^3.5.9",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.21.2"
+    "sequelize": "^6.21.2",
+    "stream-wormhole": "^1.1.0"
   },
   "devDependencies": {
     "autod": "^3.0.1",
