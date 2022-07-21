@@ -10,6 +10,7 @@
     "await-stream-ready": "^1.0.1",
     "dayjs": "^1.11.3",
     "egg": "^2.36.0",
+    "egg-jsonp": "^2.0.0",
     "egg-mysql": "^3.0.0",
     "egg-scripts": "^2.11.0",
     "egg-sequelize": "^6.0.0",

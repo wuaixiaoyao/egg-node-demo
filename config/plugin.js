@@ -25,4 +25,10 @@ module.exports = {
     enable: true,
     package: 'egg-sequelize',
   },
+
+  // 支持jsonp
+  jsonp: {
+    enable: true,
+    package: 'egg-jsonp',
+  },
 };

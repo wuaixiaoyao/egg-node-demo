@@ -34,3 +34,4 @@ npm stop
 - [egg](https://www.eggjs.org/zh-CN)
 - [egg-sequelize](https://www.eggjs.org/zh-CN/tutorials/sequelize)
 - [egg.js开发后端API接口](https://www.h5w3.com/120313.html)
+- [Egg.js学习与实战系列](https://blog.csdn.net/tiven_/article/details/121125654)

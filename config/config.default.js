@@ -108,6 +108,16 @@ module.exports = (appInfo) => {
     ua: [/Baiduspider/i],
   };
 
+  config.jsonp = {
+    limit: 100,
+    callback: ['_callback', 'callback'],
+    csrf: true,
+    // whiteList: [
+    // 'localhost:4000/',
+    // '127.0.0.1:4000/',
+    // ],
+  };
+
   return {
     ...config,
     ...userConfig,

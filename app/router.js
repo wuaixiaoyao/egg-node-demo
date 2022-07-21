@@ -5,6 +5,7 @@
  */
 module.exports = (app) => {
   const { router, controller, io } = app;
+
   router.get('/', controller.home.index);
 
   app.router.get('/api/repos', app.controller.home.listReposByOrg);
@@ -17,10 +18,16 @@ module.exports = (app) => {
   // app.router.get('/api/user', app.controller.user.index);
   router.resources('user', '/user', controller.user);
   app.router.get('/api/user/:id/', controller.user.info);
+
   // file
   app.router.post('/api/file/upload/', controller.file.upload);
+
   // socket.io
   io.of('/').route('chat', io.controller.default.ping);
   io.of('/').route('chat', app.io.controller.chat.index);
   const client1 = app.mysql.get('user');
+
+  // jsonp
+  const jsonp = app.jsonp();
+  router.get('/api/v1/jsonp/list', jsonp, controller.jsonp.list);
 };
